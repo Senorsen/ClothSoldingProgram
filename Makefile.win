@@ -1,0 +1,66 @@
+# Project: ClothSystem
+# Makefile created by Dev-C++ 5.4.0
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+RES      = obj/服装销售管理系统_private.res
+OBJ      = obj/WinMain.o obj/basefunc.o obj/AddUserProc.o obj/UserLoginProc.o obj/EditUserProc.o obj/MainProc.o obj/UserControlProc.o obj/AddNewClothProc.o obj/EditClothProc.o obj/SoldClothProc.o obj/StatProc.o obj/LogProc.o $(RES)
+LINKOBJ  = obj/WinMain.o obj/basefunc.o obj/AddUserProc.o obj/UserLoginProc.o obj/EditUserProc.o obj/MainProc.o obj/UserControlProc.o obj/AddNewClothProc.o obj/EditClothProc.o obj/SoldClothProc.o obj/StatProc.o obj/LogProc.o $(RES)
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib" -static-libstdc++ -static-libgcc -mwindows -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include"
+BIN      = bin/服装销售管理系统.exe
+CXXFLAGS = $(CXXINCS)  -w -g3
+CFLAGS   = $(INCS)  -w -g3
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+obj/WinMain.o: WinMain.c
+	$(CC) -c WinMain.c -o obj/WinMain.o $(CFLAGS)
+
+obj/basefunc.o: basefunc.c
+	$(CC) -c basefunc.c -o obj/basefunc.o $(CFLAGS)
+
+obj/AddUserProc.o: AddUserProc.c
+	$(CC) -c AddUserProc.c -o obj/AddUserProc.o $(CFLAGS)
+
+obj/UserLoginProc.o: UserLoginProc.c
+	$(CC) -c UserLoginProc.c -o obj/UserLoginProc.o $(CFLAGS)
+
+obj/EditUserProc.o: EditUserProc.c
+	$(CC) -c EditUserProc.c -o obj/EditUserProc.o $(CFLAGS)
+
+obj/MainProc.o: MainProc.c
+	$(CC) -c MainProc.c -o obj/MainProc.o $(CFLAGS)
+
+obj/UserControlProc.o: UserControlProc.c
+	$(CC) -c UserControlProc.c -o obj/UserControlProc.o $(CFLAGS)
+
+obj/AddNewClothProc.o: AddNewClothProc.c
+	$(CC) -c AddNewClothProc.c -o obj/AddNewClothProc.o $(CFLAGS)
+
+obj/EditClothProc.o: EditClothProc.c
+	$(CC) -c EditClothProc.c -o obj/EditClothProc.o $(CFLAGS)
+
+obj/SoldClothProc.o: SoldClothProc.c
+	$(CC) -c SoldClothProc.c -o obj/SoldClothProc.o $(CFLAGS)
+
+obj/StatProc.o: StatProc.c
+	$(CC) -c StatProc.c -o obj/StatProc.o $(CFLAGS)
+
+obj/LogProc.o: LogProc.c
+	$(CC) -c LogProc.c -o obj/LogProc.o $(CFLAGS)
+
+obj/服装销售管理系统_private.res: 服装销售管理系统_private.rc 
+	$(WINDRES) -i 服装销售管理系统_private.rc --input-format=rc -o obj/服装销售管理系统_private.res -O coff 
